@@ -1,0 +1,779 @@
+=================================================
+TEST 13: Three lwps.  Stop, then restart
+
+This test spawns a three threads each of which stops and restarts
+several times.
+
+
+----------
+Reference:
+----------
+Starting LWPs...
+Test
+Test
+Test
+Test2
+Test2
+Test2
+Test3
+Test3
+Test3
+Test4
+Test4
+Test4
+Test5
+Test5
+Test5
+Test6
+Test6
+Test6
+Done.
+----------
+Submitted:
+----------
+Starting LWPs...
+Test
+Test2
+Test
+Test2
+Test
+Test2
+Test3
+Test4
+Test3
+Test4
+Test3
+Test4
+Test5
+Test5
+Test5
+Test6
+Test6
+Test6
+Done.
+
+---------------------------------
+Differences (< reference > output)
+---------------------------------
+
+3,4d2
+< Test
+< Test
+5a4
+> Test
+6a6
+> Test
+9,10d8
+< Test3
+< Test3
+11a10
+> Test3
+12a12
+> Test3
+---------
+=================================================
+TEST 14: Five lwps, all exit, recreate then call start
+
+Creates five lwps each of which eventually exits.  After exiting,
+main() recreates them and calls start again()
+
+----------
+Reference:
+----------
+Greetings from Thread 0.  Yielding...
+Greetings from Thread 1.  Yielding...
+Greetings from Thread 2.  Yielding...
+Greetings from Thread 3.  Yielding...
+Greetings from Thread 4.  Yielding...
+I (0) am still alive.  Goodbye.
+I (1) am still alive.  Goodbye.
+I (2) am still alive.  Goodbye.
+I (3) am still alive.  Goodbye.
+I (4) am still alive.  Goodbye.
+First round complete. Restarting with no queue
+Creating five LWPs and starting them
+Greetings from Thread 0.  Yielding...
+Greetings from Thread 1.  Yielding...
+Greetings from Thread 2.  Yielding...
+Greetings from Thread 3.  Yielding...
+Greetings from Thread 4.  Yielding...
+I (0) am still alive.  Goodbye.
+I (1) am still alive.  Goodbye.
+I (2) am still alive.  Goodbye.
+I (3) am still alive.  Goodbye.
+I (4) am still alive.  Goodbye.
+LWPs have ended.
+----------
+Submitted:
+----------
+Child process (1240) exited due to SIGSEGV.
+
+---------------------------------
+Differences (< reference > output)
+---------------------------------
+
+1,23c1
+< Greetings from Thread 0.  Yielding...
+< Greetings from Thread 1.  Yielding...
+< Greetings from Thread 2.  Yielding...
+< Greetings from Thread 3.  Yielding...
+< Greetings from Thread 4.  Yielding...
+< I (0) am still alive.  Goodbye.
+< I (1) am still alive.  Goodbye.
+< I (2) am still alive.  Goodbye.
+< I (3) am still alive.  Goodbye.
+< I (4) am still alive.  Goodbye.
+< First round complete. Restarting with no queue
+< Creating five LWPs and starting them
+< Greetings from Thread 0.  Yielding...
+< Greetings from Thread 1.  Yielding...
+< Greetings from Thread 2.  Yielding...
+< Greetings from Thread 3.  Yielding...
+< Greetings from Thread 4.  Yielding...
+< I (0) am still alive.  Goodbye.
+< I (1) am still alive.  Goodbye.
+< I (2) am still alive.  Goodbye.
+< I (3) am still alive.  Goodbye.
+< I (4) am still alive.  Goodbye.
+< LWPs have ended.
+---
+> Child process (1240) exited due to SIGSEGV.
+---------
+=================================================
+TEST 15: Lwp spawns another then exits 100 times.
+
+One thread creates a new one, then exits.
+
+
+
+----------
+Reference:
+----------
+100
+99
+98
+97
+96
+95
+94
+93
+92
+91
+90
+89
+88
+87
+86
+85
+84
+83
+82
+81
+80
+79
+78
+77
+76
+75
+74
+73
+72
+71
+70
+69
+68
+67
+66
+65
+64
+63
+62
+61
+60
+59
+58
+57
+56
+55
+54
+53
+52
+51
+50
+49
+48
+47
+46
+45
+44
+43
+42
+41
+40
+39
+38
+37
+36
+35
+34
+33
+32
+31
+30
+29
+28
+27
+26
+25
+24
+23
+22
+21
+20
+19
+18
+17
+16
+15
+14
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Bye
+----------
+Submitted:
+----------
+Child process (1262) exited due to SIGSEGV.
+
+---------------------------------
+Differences (< reference > output)
+---------------------------------
+
+1,101c1
+< 100
+< 99
+< 98
+< 97
+< 96
+< 95
+< 94
+< 93
+< 92
+< 91
+< 90
+< 89
+< 88
+< 87
+< 86
+< 85
+< 84
+< 83
+< 82
+< 81
+< 80
+< 79
+< 78
+< 77
+< 76
+< 75
+< 74
+< 73
+< 72
+< 71
+< 70
+< 69
+< 68
+< 67
+< 66
+< 65
+< 64
+< 63
+< 62
+< 61
+< 60
+< 59
+< 58
+< 57
+< 56
+< 55
+< 54
+< 53
+< 52
+< 51
+< 50
+< 49
+< 48
+< 47
+< 46
+< 45
+< 44
+< 43
+< 42
+< 41
+< 40
+< 39
+< 38
+< 37
+< 36
+< 35
+< 34
+< 33
+< 32
+< 31
+< 30
+< 29
+< 28
+< 27
+< 26
+< 25
+< 24
+< 23
+< 22
+< 21
+< 20
+< 19
+< 18
+< 17
+< 16
+< 15
+< 14
+< 13
+< 12
+< 11
+< 10
+< 9
+< 8
+< 7
+< 6
+< 5
+< 4
+< 3
+< 2
+< 1
+< Bye
+---
+> Child process (1262) exited due to SIGSEGV.
+---------
+=================================================
+TEST 18: 1024 threads, random exit.
+
+Creat 1024 threads, each of which either yields or exits randomly until
+a counter reaches a given value.
+
+
+
+
+----------
+Reference:
+----------
+Spawining 4096 threads.
+Done.  Count is 50000. (Yielded 406869 times)
+----------
+Submitted:
+----------
+Child process (1318) exited due to SIGSEGV.
+
+---------------------------------
+Differences (< reference > output)
+---------------------------------
+
+1,2c1
+< Spawining 4096 threads.
+< Done.  Count is 50000. (Yielded 406869 times)
+---
+> Child process (1318) exited due to SIGSEGV.
+---------
+=================================================
+TEST 21: Transfer threads between schedulers (stopped)
+
+Create a number of threads, then set_scheduler() and see if 
+they transfer properly.
+
+
+
+
+
+----------
+Reference:
+----------
+Creating LWPS
+Setting the scheduler.
+Launching LWPS
+    1
+         2
+              3
+                   4
+                        5
+         2
+              3
+                   4
+                        5
+              3
+                   4
+                        5
+                   4
+                        5
+                        5
+Back from LWPS.
+----------
+Submitted:
+----------
+Child process (1374) exited due to SIGSEGV.
+
+---------------------------------
+Differences (< reference > output)
+---------------------------------
+
+1,19c1
+< Creating LWPS
+< Setting the scheduler.
+< Launching LWPS
+<     1
+<          2
+<               3
+<                    4
+<                         5
+<          2
+<               3
+<                    4
+<                         5
+<               3
+<                    4
+<                         5
+<                    4
+<                         5
+<                         5
+< Back from LWPS.
+---
+> Child process (1374) exited due to SIGSEGV.
+---------
+=================================================
+TEST 22: Transfer threads between schedulers (live)
+
+Create a number of threads, start them running,
+then set_scheduler() and see if they transfer properly.
+
+
+
+
+
+----------
+Reference:
+----------
+Creating LWPS
+Launching LWPS
+    1
+         2
+              3
+                   4
+                        5
+    1
+         2
+              3
+                   4
+                        5
+    1
+         2
+              3
+                   4
+                        5
+Setting the scheduler.
+    1
+         2
+              3
+                   4
+                        5
+    1
+         2
+              3
+                   4
+                        5
+    1
+         2
+              3
+                   4
+                        5
+Back from LWPS.
+----------
+Submitted:
+----------
+Creating LWPS
+Launching LWPS
+    1
+         2
+              3
+                   4
+                        5
+    1
+         2
+              3
+                   4
+                        5
+    1
+         2
+              3
+                   4
+                        5
+Setting the scheduler.
+Back from LWPS.
+
+---------------------------------
+Differences (< reference > output)
+---------------------------------
+
+19,33d18
+<     1
+<          2
+<               3
+<                    4
+<                         5
+<     1
+<          2
+<               3
+<                    4
+<                         5
+<     1
+<          2
+<               3
+<                    4
+<                         5
+---------
+=================================================
+TEST 24: Transfer threads between schedulers check for init/shutdown
+
+Create a number of threads, start them running,
+then set_scheduler() and see if they transfer properly.
+
+
+
+
+
+----------
+Reference:
+----------
+init: called on first scheduler
+Creating LWPS
+Admitting new thread to First scheduler
+Admitting new thread to First scheduler
+Admitting new thread to First scheduler
+Admitting new thread to First scheduler
+Admitting new thread to First scheduler
+Launching LWPS
+(first->next())
+    1
+(first->next())
+         2
+(first->next())
+              3
+(first->next())
+                   4
+(first->next())
+                        5
+(first->next())
+    1
+(first->next())
+         2
+(first->next())
+              3
+(first->next())
+                   4
+(first->next())
+                        5
+(first->next())
+    1
+(first->next())
+         2
+(first->next())
+              3
+(first->next())
+                   4
+(first->next())
+                        5
+Setting the scheduler.
+init: called on second scheduler
+(first->next())
+Removing thread from First scheduler
+Admitting new thread to Second scheduler
+(first->next())
+Removing thread from First scheduler
+Admitting new thread to Second scheduler
+(first->next())
+Removing thread from First scheduler
+Admitting new thread to Second scheduler
+(first->next())
+Removing thread from First scheduler
+Admitting new thread to Second scheduler
+(first->next())
+Removing thread from First scheduler
+Admitting new thread to Second scheduler
+(first->next())
+shutdown: called on first scheduler
+(second->next())
+    1
+(second->next())
+         2
+(second->next())
+              3
+(second->next())
+                   4
+(second->next())
+                        5
+(second->next())
+    1
+(second->next())
+         2
+(second->next())
+              3
+(second->next())
+                   4
+(second->next())
+                        5
+(second->next())
+    1
+(second->next())
+         2
+(second->next())
+              3
+(second->next())
+                   4
+(second->next())
+                        5
+(second->next())
+Removing thread from Second scheduler
+(second->next())
+Removing thread from Second scheduler
+(second->next())
+Removing thread from Second scheduler
+(second->next())
+Removing thread from Second scheduler
+(second->next())
+Removing thread from Second scheduler
+(second->next())
+Back from LWPS.
+----------
+Submitted:
+----------
+(first->next())
+Creating LWPS
+init: called on first scheduler
+Admitting new thread to First scheduler
+Admitting new thread to First scheduler
+Admitting new thread to First scheduler
+Admitting new thread to First scheduler
+Admitting new thread to First scheduler
+Launching LWPS
+(first->next())
+    1
+(first->next())
+         2
+(first->next())
+              3
+(first->next())
+                   4
+(first->next())
+                        5
+(first->next())
+    1
+(first->next())
+         2
+(first->next())
+              3
+(first->next())
+                   4
+(first->next())
+                        5
+(first->next())
+    1
+(first->next())
+         2
+(first->next())
+              3
+(first->next())
+                   4
+(first->next())
+                        5
+Setting the scheduler.
+(second->next())
+(second->next())
+Back from LWPS.
+
+---------------------------------
+Differences (< reference > output)
+---------------------------------
+
+1c1
+< init: called on first scheduler
+---
+> (first->next())
+2a3
+> init: called on first scheduler
+40,95d40
+< init: called on second scheduler
+< (first->next())
+< Removing thread from First scheduler
+< Admitting new thread to Second scheduler
+< (first->next())
+< Removing thread from First scheduler
+< Admitting new thread to Second scheduler
+< (first->next())
+< Removing thread from First scheduler
+< Admitting new thread to Second scheduler
+< (first->next())
+< Removing thread from First scheduler
+< Admitting new thread to Second scheduler
+< (first->next())
+< Removing thread from First scheduler
+< Admitting new thread to Second scheduler
+< (first->next())
+< shutdown: called on first scheduler
+< (second->next())
+<     1
+< (second->next())
+<          2
+< (second->next())
+<               3
+< (second->next())
+<                    4
+< (second->next())
+<                         5
+< (second->next())
+<     1
+< (second->next())
+<          2
+< (second->next())
+<               3
+< (second->next())
+<                    4
+< (second->next())
+<                         5
+< (second->next())
+<     1
+< (second->next())
+<          2
+< (second->next())
+<               3
+< (second->next())
+<                    4
+< (second->next())
+<                         5
+< (second->next())
+< Removing thread from Second scheduler
+< (second->next())
+< Removing thread from Second scheduler
+< (second->next())
+< Removing thread from Second scheduler
+< (second->next())
+< Removing thread from Second scheduler
+97d41
+< Removing thread from Second scheduler
+---------

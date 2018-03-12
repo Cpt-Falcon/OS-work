@@ -1,0 +1,16 @@
+
+Author 1: Aubrey Russell (arusse02)
+Author 2: Chris Voncina (cvoncina)
+2/27/2016
+
+Run Program: 
+To compile our program you need to run cleanup.sh first then 
+can add the echo to pass in text to the secret. 
+
+Considerations:
+We had a lot of issues writing the report since we learned a lot 
+and wanted to be thorough on the writeup. Our driver file compiles 
+and runs fine we handled most of the error cases. One of the 
+error handling cases we did not know to handle was the reincarnation 
+server.We did not know anyway that we could breakour driver such 
+that we could test if it maintained that state.

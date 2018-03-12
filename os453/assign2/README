@@ -1,0 +1,11 @@
+Names: Chris Voncina (cvoncina) Aubrey Russell (arusse02)
+
+Special Considerations:
+
+Our code compiles fine with the makefile however we ran
+into issues with the set_scheduler. We felt that the LWP was most important 
+so we spent most of our time on that portion of project. This is shown in our 
+code because we passed most of the LWP testcases. We thought thatthe scheduler
+was only small part, but it seemed to affect almost half of our test cases.  
+Therfore we feel that we should be graded mostly on our LWP.
+

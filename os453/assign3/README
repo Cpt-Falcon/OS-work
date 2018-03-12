@@ -1,0 +1,20 @@
+Names: Aubrey Russell (arusse02)
+
+Special Considerations:
+
+My code runs well for multiple philosophers and 
+the print table is adaptable so that the number of 
+philosophers doesn't affect the aesthetics of
+the state display. The only thing is that the
+specification doesn't specify that we should
+use pthread exit when error checking for
+lock and unlock mutexes--I simply exit
+with exit failure since that is generally
+considered to be a graceful exit. The thread code
+also has many waitPrint statements in it
+which are intended to prevent threads
+from changing states when printing occurs, so even 
+though  the code gets ugly in places, it is entirely 
+functional  and enables the thread to behave 
+synchronously when there is a print in progress.
+

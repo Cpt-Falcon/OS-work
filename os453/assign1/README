@@ -1,0 +1,17 @@
+Name: Aubrey Russell "(arusse02)"
+
+Special instructions:
+Use make to create object and executable files.
+The default makes all necessary files and touches files.
+Use make clean get rid of junk.
+
+Special considerations:
+The code currently misses one error in the given test file since 
+realloc occasionally moves memory to the top of the stack
+when it should not. However, in terms of functionality my code 
+works, so i'm hoping this relatively small error doesn't take
+out my grade. I also don't know why make is different
+from make intel-all since intel-all already builds everything
+in 32 and 64 bit, so make is very similar in essense since
+it has to build all library files anyways. i also included the 
+try me file since the test suite required it.

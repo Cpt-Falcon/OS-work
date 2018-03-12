@@ -1,0 +1,14 @@
+Aubrey Russell (arusse02)
+Date 3/11/2016
+Assignment 6
+
+Special Consideration:
+None
+
+How to run:
+To run the program use make or make hello to produce the
+object file and also the executable. You can also use make
+test in order to compile the code and execute it. Finally,
+use make clean in order to remove the object file and
+the executable from the current directory.
+

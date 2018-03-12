@@ -1,0 +1,27 @@
+  Aubrey Russell (arusse02)
+  Chris Voncina (cvoncina)
+  Date 3/6/2016
+  Assignment 5
+
+Special Consideration:
+First of all we completed 109 out of the 122 test cases,
+the ones that we could not finish are small diff errrors
+of the doubleindirect zones. This happened because we finished the
+indirect zones fairly late and there is probably a small bug
+which is causing an off by one.
+
+After adding an extra loop to solve the double indirect we are getting 
+most of the right output but have slightly different diffs. This difference
+shows that we are very close to completing it. We decided to focus on adding 
+correct error handling and try and fix more edge test cases. 
+
+We believe that our knowledge of filesystems is very strong and although
+we did not pass every test case we demonstrated a thorugh understanding
+of the material. Nevertheless we did pass most of the test cases, and many
+of them were the small weird error ones which we did not have time to check.
+
+How to runL
+To run our program call make all or just make which 
+creates executables minls and minget. Use make clean
+to clean up the directory.
+

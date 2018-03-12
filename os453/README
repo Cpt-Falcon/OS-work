@@ -1,0 +1,24 @@
+Name: Aubrey Russell "(arusse02)"
+
+Special instructions:
+Use make to create object and executable files.
+The default makes all necessary files and touches files.
+Use make clean get rid of all code.
+Run the bash script I have provided for my own tests.
+My bash script does > outfile and > outfileCmp first
+so that way the files always show up for the sort
+regardless of how the system operates.
+
+Special considerations:
+Since I was coding the make file through putty at home,
+I occasionally get a clock synchronization warning
+from makefile which I think occurs as a result of
+going over ssh but it may show up for some reason. The
+makefile itself works fine though and generates all the
+files as well as cleans them with make clean. I have also
+tested this numerous times on 64Bit and 32Bit systems in 
+several directories and I have saved the test results
+and compared them to just running ls | sort -r > outfile
+in regular shell. Finally, the shell command chmod u-w did
+not work on my terminal and I used chmod 411 outfile to test
+the write permission error. 

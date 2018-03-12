@@ -1,0 +1,160 @@
+
+------------------------
+Looking for source files
+------------------------
+
+Found: malloc.c tryme.c
+
+-----------------------
+Looking for a Makefile
+----------------------
+
+Found: Makefile
+
+--------------------------------
+Checking for long lines (no program should have any lines > 80 chars)
+--------------------------------
+
+Line length ok.
+
+
+------------------------------------
+Building the application: "make intel-all"
+------------------------------------
+
+make intel-all
+make: Nothing to be done for `intel-all'.
+
+---------------
+checking for libraries
+---------------
+
+
+--------------------------------------------------------
+Test Results:
+   These are the results of trying your libraries
+against several programs with different characteristics 
+described by the filename.  The output of your program
+is compared to a reference output using diff(1).  If they
+differ, the test case is a failure.
+
+  Remember, if the machine you're running on _really_ 
+runs out of memory, it's possible for a test to fail
+without it being your program's fault.  (there'd better
+be a good error message, though)
+
+
+Testing (failure details below):
+        -----
+         1) Linking (only) against required routines        () ... ok.
+         2) Call malloc() once without using the returned (32) ... ok.
+         3) Call malloc() once without using the returned (64) ... ok.
+         4) Call malloc() once, using the space once      (32) ... ok.
+         5) Call malloc() once, using the space once      (64) ... ok.
+         6) Call malloc() a few times                     (32) ... ok.
+         7) Call malloc() a few times                     (64) ... ok.
+         8) Call malloc() a lot of times                  (32) ... ok.
+         9) Call malloc() a lot of times                  (64) ... ok.
+        10) Call realloc(NULL) once, using the space      (32) ... ok.
+        11) Call realloc(NULL) once, using the space      (64) ... ok.
+        12) Call realloc(NULL) a few times                (32) ... ok.
+        13) Call realloc(NULL) a few times                (64) ... ok.
+        14) Call malloc(), then free the memory           (32) ... ok.
+        15) Call malloc(), then free the memory           (64) ... ok.
+        16) Call malloc() a few times then free all the r (32) ... ok.
+        17) Call malloc() a few times then free all the r (64) ... ok.
+        18) Call malloc(), then realloc()                 (32) ... ok.
+        19) Call malloc(), then realloc()                 (64) ... ok.
+        20) Alternate malloc()s and realloc()s            (32) ... ok.
+        21) Alternate malloc()s and realloc()s            (64) ... ok.
+        22) Call calloc() and use it.                     (32) ... ok.
+        23) Call calloc() and use it.                     (64) ... ok.
+        24) Call calloc() for various sizes and test      (32) ... ok.
+        25) Call calloc() for various sizes and test      (64) ... ok.
+        26) Call malloc() and free() 10000000 times       (32) ... ok.
+        27) Call malloc() and free() 10000000 times       (64) ... ok.
+        28) Call malloc for a biiiiig (2^24) value        (32) ... ok.
+        29) Call malloc for a biiiiig (2^24) value        (64) ... ok.
+        30) Check the alignment of malloc()'s results     (32) ... ok.
+        31) Check the alignment of malloc()'s results     (64) ... ok.
+        32) Malloc(), then free an internal pointer       (32) ... ok.
+        33) Malloc(), then free an internal pointer       (64) ... ok.
+        34) Repeatedly malloc(), free an internal pointer (32) ... ok.
+        35) Repeatedly malloc(), free an internal pointer (64) ... ok.
+        36) Free(NULL) a bunch then malloc()              (32) ... ok.
+        37) Free(NULL) a bunch then malloc()              (64) ... ok.
+        38) check realloc(NULL,size) equiv. malloc(size)  (32) ... ok.
+        39) check realloc(NULL,size) equiv. malloc(size)  (64) ... ok.
+        40) Call malloc() and realloc(ptr,0) 10000000 tim (32) ... ok.
+        41) Call malloc() and realloc(ptr,0) 10000000 tim (64) ... ok.
+        42) A realloc() that should not move the buffer   (32) ... FAILURE.
+        43) A realloc() that should not move the buffer   (64) ... FAILURE.
+        44) A realloc() that shrinks the buffer           (32) ... ok.
+        45) A realloc() that shrinks the buffer           (64) ... ok.
+        46) A realloc() forced to move buffer             (32) ... ok.
+        47) A realloc() forced to move buffer             (64) ... ok.
+        -----
+FAILURE. (45/47 passed)
+
+
+-----------------------------------------------------------------
+Failure Details
+-----------------------------------------------------------------
+=================================================
+TEST 42 (32-bit): A realloc() that should not move the buffer
+
+
+=================================================
+
+----------
+Reference:
+----------
+stdout:
+  Calling malloc succeeded.
+  Successfully used the space.
+Reference produced no error output.
+----------
+Submitted:
+----------
+stdout:
+  Calling malloc succeeded.
+  Successfully used the space.
+  Realloc unexpectedly moved the buffer old 0x8daf020 != new 0x8daf470.
+Submitted produced no error output.
+
+---------------------------------
+Differences (< reference > output)
+---------------------------------
+
+  2a3
+  > Realloc unexpectedly moved the buffer old 0x8daf020 != new 0x8daf470.
+---------
+=================================================
+TEST 43 (64-bit): A realloc() that should not move the buffer
+
+
+=================================================
+
+----------
+Reference:
+----------
+stdout:
+  Calling malloc succeeded.
+  Successfully used the space.
+Reference produced no error output.
+----------
+Submitted:
+----------
+stdout:
+  Calling malloc succeeded.
+  Successfully used the space.
+  Realloc unexpectedly moved the buffer old 0x1b1f020 != new 0x1b1f470.
+Submitted produced no error output.
+
+---------------------------------
+Differences (< reference > output)
+---------------------------------
+
+  2a3
+  > Realloc unexpectedly moved the buffer old 0x1b1f020 != new 0x1b1f470.
+---------

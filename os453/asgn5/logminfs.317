@@ -1,0 +1,50 @@
+
+
+-----------------
+5) partitioned, part 0:
+     minls -p0 /home/pn-cs453/Given/Asgn5/Images/Partitioned 
+-----------------
+Program exited with bad status: 65280
+
+Test program output:
+Did not specify path size^M
+
+
+-----------------
+6) partitioned, part 1:
+     minls -p1 /home/pn-cs453/Given/Asgn5/Images/Partitioned 
+-----------------
+Program exited with bad status: 65280
+
+Test program output:
+Did not specify path size^M
+
+
+-----------------
+7) partitioned, part 2:
+     minls -p2 /home/pn-cs453/Given/Asgn5/Images/Partitioned 
+-----------------
+Program exited with bad status: 65280
+
+Test program output:
+Did not specify path size^M
+
+
+-----------------
+8) partitioned, part 3:
+     minls -p3 /home/pn-cs453/Given/Asgn5/Images/Partitioned 
+-----------------
+Program exited with bad status: 65280
+
+Test program output:
+Did not specify path size^M
+
+
+-----------------
+12) subpart., good sub:
+     minls -p0 -s0 /home/pn-cs453/Given/Asgn5/Images/HardDisk 
+-----------------
+Program exited with bad status: 65280
+
+Test program output:
+Child process (394) exited due to SIGSEGV.^M
